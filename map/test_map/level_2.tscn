@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd57v4h07g3ii"]
+
+[ext_resource type="TileSet" uid="uid://bxqypncocjmx5" path="res://map/test_map/tile_map.tres" id="1_arsda"]
+[ext_resource type="PackedScene" uid="uid://ba8igwe7u5eyn" path="res://player/movement/movement.tscn" id="2_dgq3b"]
+[ext_resource type="PackedScene" uid="uid://bi8yqrfwbbhic" path="res://map/teleport/teleport.tscn" id="3_bcgyv"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_arsda")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 393216, 0, 0, 393216, 0, 1, 393216, 0, -65534, 393216, 0, 2, 393216, 1, -65533, 393216, 0, 3, 393216, 1, -65532, 589824, 0, -65531, 655360, 0, -65530, 720896, 0, -65529, 458752, 0, -65528, 458752, 0, -65526, 458752, 0, -131061, 458752, 0, -65525, 524288, 0, -65524, 524288, 0, -131060, 524288, 0, -196596, 458752, 0, 65534, 393216, 0, -2, 524288, 3, -262132, 524288, 4)
+
+[node name="Player" parent="." instance=ExtResource("2_dgq3b")]
+position = Vector2(7, -29)
+collision_layer = 2
+SPRINT_VELOCITY = 400.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+
+[node name="TeleportLast" parent="." instance=ExtResource("3_bcgyv")]
+position = Vector2(-24, -16)
+next_Scene = "res://map/test_map/level_1.tscn"
+
+[node name="TeleportNext" parent="." instance=ExtResource("3_bcgyv")]
+position = Vector2(200, -64)
+next_Scene = "res://map/test_map/level_1.tscn"
