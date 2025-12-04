@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba8igwe7u5eyn"]
+
+[ext_resource type="Script" uid="uid://cae71mnkwjk1a" path="res://player/movement/movement_controller.gd" id="1_41vt6"]
+[ext_resource type="Texture2D" uid="uid://b2bjqc5rsq033" path="res://asserts/player-icon-placeholder.png" id="2_bfhyx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfpd8"]
+size = Vector2(168, 179)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xdjtk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bfhyx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MovementController" type="CharacterBody2D"]
+script = ExtResource("1_41vt6")
+
+[node name="SprintControlTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="CollisionDetector" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_nfpd8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xdjtk")
+
+[connection signal="timeout" from="SprintControlTimer" to="." method="_on_sprint_control_timer_timeout"]
