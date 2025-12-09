@@ -1,0 +1,117 @@
+[gd_scene load_steps=4 format=3 uid="uid://5jt8misdts3y"]
+
+[ext_resource type="Script" uid="uid://dhhld7b3yaqnw" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ruuq5"]
+line_spacing = 0.0
+font_size = 61
+font_color = Color(1, 0.6784314, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhj5c"]
+font_size = 51
+
+[node name="MenuRoot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhj5c")
+
+[node name="Menu1" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterBox" type="MarginContainer" parent="Menu1"]
+custom_minimum_size = Vector2(576, 324)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu1/CenterBox"]
+custom_minimum_size = Vector2(0.01, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Menu1/CenterBox/VBoxContainer"]
+custom_minimum_size = Vector2(129.365, 67.285)
+layout_mode = 2
+text = "Senren❀Banka"
+label_settings = SubResource("LabelSettings_ruuq5")
+
+[node name="Button" type="Button" parent="Menu1/CenterBox/VBoxContainer"]
+custom_minimum_size = Vector2(176.105, 46.455)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Start"
+
+[node name="VSeparator" type="VSeparator" parent="Menu1/CenterBox/VBoxContainer"]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Menu1/CenterBox/VBoxContainer"]
+custom_minimum_size = Vector2(176.105, 46.455)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Continue
+"
+
+[node name="VSeparator2" type="VSeparator" parent="Menu1/CenterBox/VBoxContainer"]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="Menu1/CenterBox/VBoxContainer"]
+custom_minimum_size = Vector2(176.105, 46.455)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit
+"
+
+[node name="Menu2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_right = 1152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu2"]
+custom_minimum_size = Vector2(576, 324)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Menu2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "这里神马都没有哦～(∠・ω< )⌒★"
+label_settings = SubResource("LabelSettings_uhj5c")
+
+[node name="VSeparator" type="VSeparator" parent="Menu2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="Menu2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(176, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back
+"
+
+[connection signal="pressed" from="Menu1/CenterBox/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Menu2/MarginContainer/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
