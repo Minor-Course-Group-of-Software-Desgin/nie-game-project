@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 200.0
-@export var JUMP_VELOCITY = -200.0
-@export var SPRINT_VELOCITY = 300.0
+@export var SPEED = 400.0
+@export var JUMP_VELOCITY = -500.0
+@export var SPRINT_VELOCITY = 2000.0
 
 @export var MAX_STAMINA = 2.0
 @export var STAMINA_RECOVERY_RATE = 0.5
