@@ -1,12 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8wi7by4pft6t"]
+[gd_scene load_steps=9 format=3 uid="uid://c8wi7by4pft6t"]
 
 [ext_resource type="Script" uid="uid://0d5n5opwn3qu" path="res://ui/intro/intro.gd" id="1_0ub06"]
 [ext_resource type="Texture2D" uid="uid://dsi5rq6pmuhss" path="res://asserts/ui/intro/GDD_logo.png" id="1_qxmol"]
 [ext_resource type="AudioStream" uid="uid://6t3705seuudp" path="res://asserts/music/Aice room - Future Lab.mp3" id="2_0ub06"]
+[ext_resource type="Texture2D" uid="uid://cw2dtmnvxet83" path="res://asserts/ui/intro/NIE_PIC.png" id="3_70l5b"]
+[ext_resource type="Texture2D" uid="uid://br87dd0qwh2e4" path="res://asserts/ui/intro/NIE_WORD.png" id="4_5kowt"]
 
 [sub_resource type="Animation" id="Animation_c5cpu"]
 resource_name = "intro"
-length = 13.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,10 +67,34 @@ tracks/4/path = NodePath("Overlay_2:color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2.9505727, 3.0817094, 3.2, 4.252323, 4.3834596, 4.5017505, 4.7000003, 4.8311367, 4.9494276),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(2.9505727, 3.0817094, 3.2, 4.252323, 4.3834596, 4.5017505, 4.7000003, 4.8311367),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.99215686), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0.99215686), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0.99215686), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.99215686), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0.99215686), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0.99215686)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NIE_LOGO_PIC:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.9249883, 4.972804),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NIE_LOGO_WORD:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4.9249883, 4.972804),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_qxmol"]
@@ -121,6 +147,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NIE_LOGO_WORD:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NIE_LOGO_PIC:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ub06"]
 _data = {
@@ -146,7 +196,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="GDD_LOGO" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -158,19 +208,6 @@ offset_bottom = -190.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_qxmol")
-
-[node name="Overlay" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -3.0
-offset_right = 3.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="Overlay_2" type="ColorRect" parent="."]
 layout_mode = 1
@@ -184,6 +221,38 @@ offset_bottom = -199.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="NIE_LOGO_PIC" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 300.0
+offset_top = 231.0
+offset_right = 495.0
+offset_bottom = 432.0
+texture = ExtResource("3_70l5b")
+expand_mode = 1
+
+[node name="NIE_LOGO_WORD" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 496.0
+offset_top = 235.0
+offset_right = 912.0
+offset_bottom = 398.0
+texture = ExtResource("4_5kowt")
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
