@@ -20,4 +20,5 @@ func _on_Hitbox_body_entered(body: Node2D):
 
     var hurtbox := body as Hurtbox
     if hurtbox:
+
         hurtbox.receive_damage(damage, get_parent().owner)   # owner=玩家或敌人
