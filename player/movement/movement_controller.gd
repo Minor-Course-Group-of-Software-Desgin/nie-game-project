@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 
 @export var SPEED = 200.0
 @export var JUMP_VELOCITY = -200.0
@@ -41,3 +41,9 @@ func _input(event: InputEvent) -> void:
 func _on_sprint_control_timer_timeout() -> void:
 	# 冲刺结束将速度置零防止滑行
 	velocity = Vector2.ZERO
+
+
+func _on_hit() -> void:
+	print("Game Over!")
+	if $SprintControlTimer.is_stopped():
+		$CollisionDetector.queue_free()

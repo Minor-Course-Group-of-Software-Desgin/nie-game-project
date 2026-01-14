@@ -7,8 +7,8 @@ signal hurt(damage: int, attacker: Node)
 @export var invincible := false
 
 func receive_damage(damage: int, attacker: Node):
-    if invincible: return
-    hurt.emit(damage, attacker)
-    # 打断逻辑：直接通知状态机
-    if can_be_interrupted and owner.has_method("interrupt"):
-        owner.interrupt()
+	if invincible: return
+	hurt.emit(damage, attacker)
+	# 打断逻辑：直接通知状态机
+	if can_be_interrupted and owner.has_method("interrupt"):
+		owner.interrupt()

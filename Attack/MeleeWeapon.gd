@@ -6,17 +6,17 @@ class_name MeleeWeapon
 @onready var hitbox: Hitbox = $Hitbox
 
 func _ready():
-    timer.wait_time = cooldown
-    hitbox.monitoring = false
+	timer.wait_time = cooldown
+	hitbox.monitoring = false
 
 # 由动画帧或输入触发
 func start_attack():
-    if timer.is_stopped():
-        timer.start()
-        hitbox.enable()
-        # 动画播放、特效等
-        # ...
+	if timer.is_stopped():
+		timer.start()
+		hitbox.enable()
+		# 动画播放、特效等
+		# ...
 
 # 动画结束帧调用
 func end_attack():
-    hitbox.disable()
+	hitbox.disable()

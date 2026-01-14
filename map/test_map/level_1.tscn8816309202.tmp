@@ -1,14 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1pfjkx8woavf"]
+[gd_scene load_steps=5 format=3 uid="uid://c1pfjkx8woavf"]
 
 [ext_resource type="TileSet" uid="uid://bxqypncocjmx5" path="res://map/test_map/tile_map.tres" id="1_dilhk"]
 [ext_resource type="PackedScene" uid="uid://ba8igwe7u5eyn" path="res://player/movement/movement.tscn" id="1_n0qsc"]
 [ext_resource type="PackedScene" uid="uid://bi8yqrfwbbhic" path="res://map/teleport/teleport.tscn" id="3_3mhv4"]
 [ext_resource type="PackedScene" uid="uid://8h1o68ow21sj" path="res://Monsters/big_eye.tscn" id="4_rdn1d"]
-[ext_resource type="PackedScene" uid="uid://cvqlumoqpn2vf" path="res://map/kill_zone/kill_zone.tscn" id="5_hjgpi"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rdn1d"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hjgpi"]
 
 [node name="Level1" type="Node2D"]
 
@@ -24,47 +19,14 @@ SPRINT_VELOCITY = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
-limit_left = -100
-limit_top = -200
-limit_right = 800
-limit_bottom = 100
 
 [node name="TeleportLast" parent="." instance=ExtResource("3_3mhv4")]
 position = Vector2(-24, -16)
 next_Scene = "res://map/test_map/level_2.tscn"
 
 [node name="TeleportNext" parent="." instance=ExtResource("3_3mhv4")]
-position = Vector2(648, -142)
+position = Vector2(473, -144)
 next_Scene = "res://map/test_map/level_2.tscn"
 
 [node name="BigEye" parent="." instance=ExtResource("4_rdn1d")]
-position = Vector2(257, -41)
-
-[node name="Wall1" type="Node" parent="."]
-
-[node name="StaticBody2Dleft" type="StaticBody2D" parent="Wall1"]
-position = Vector2(159, -44)
-rotation = 1.5707964
-collision_layer = 16
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1/StaticBody2Dleft"]
-visible = false
-shape = SubResource("WorldBoundaryShape2D_rdn1d")
-
-[node name="StaticBody2Dright" type="StaticBody2D" parent="Wall1"]
-position = Vector2(399, -37)
-rotation = -1.5707964
-collision_layer = 16
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1/StaticBody2Dright"]
-visible = false
-shape = SubResource("WorldBoundaryShape2D_hjgpi")
-
-[node name="KillZone" parent="." instance=ExtResource("5_hjgpi")]
-position = Vector2(42, 113)
-collision_mask = 2
-
-[connection signal="monster_hit" from="BigEye" to="Player" method="_on_hit"]
-[connection signal="hitted" from="KillZone" to="Player" method="_on_hit"]
+position = Vector2(194, -47)
