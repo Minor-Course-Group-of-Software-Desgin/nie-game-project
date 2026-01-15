@@ -1,28 +1,125 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd57v4h07g3ii"]
+[gd_scene load_steps=8 format=3 uid="uid://bd57v4h07g3ii"]
 
 [ext_resource type="TileSet" uid="uid://bxqypncocjmx5" path="res://map/test_map/tile_map.tres" id="1_arsda"]
+[ext_resource type="PackedScene" uid="uid://8h1o68ow21sj" path="res://Monsters/big_eye.tscn" id="2_0p8oe"]
 [ext_resource type="PackedScene" uid="uid://ba8igwe7u5eyn" path="res://player/movement/movement.tscn" id="2_dgq3b"]
 [ext_resource type="PackedScene" uid="uid://bi8yqrfwbbhic" path="res://map/teleport/teleport.tscn" id="3_bcgyv"]
+[ext_resource type="PackedScene" uid="uid://cvqlumoqpn2vf" path="res://map/kill_zone/kill_zone.tscn" id="4_ulbl2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0p8oe"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_beoi3"]
+distance = 5.0
 
 [node name="Level2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_arsda")
 format = 2
-layer_0/tile_data = PackedInt32Array(65535, 393216, 0, 0, 393216, 0, 1, 393216, 0, -65534, 393216, 0, 2, 393216, 1, -65533, 393216, 0, 3, 393216, 1, -65532, 589824, 0, -65531, 655360, 0, -65530, 720896, 0, -65529, 458752, 0, -65528, 458752, 0, -65526, 458752, 0, -131061, 458752, 0, -65525, 524288, 0, -65524, 524288, 0, -131060, 524288, 0, -196596, 458752, 0, 65534, 393216, 0, -2, 524288, 3, -262132, 524288, 4)
+layer_0/tile_data = PackedInt32Array(65535, 393216, 0, 0, 393216, 0, 1, 393216, 0, -65534, 393216, 0, 2, 393216, 1, -65533, 393216, 0, 3, 393216, 1, -65532, 589824, 0, -65531, 655360, 0, -65530, 720896, 0, -65529, 458752, 0, 65534, 393216, 0, -524267, 393216, 0, -458731, 393216, 1, -524266, 393216, 0, -524265, 393216, 0, -524264, 393216, 0, -524263, 393216, 0, -458727, 393216, 1, -131062, 393216, 0, -131061, 393216, 0, -131060, 393216, 0, -131059, 393216, 0, -131058, 393216, 0, -131057, 393216, 0, -131056, 393216, 0, -131055, 393216, 0, -65526, 393216, 1, -65525, 393216, 1, -65524, 393216, 1, -65523, 393216, 1, -65522, 393216, 1, -65521, 393216, 1, -65520, 393216, 1, -65519, 393216, 1, -786423, 524288, 4, -720887, 458752, 1, -720889, 458752, 1, -720890, 458752, 1, -720888, 458752, 1, -720886, 458752, 1, -720885, 458752, 1, -720884, 458752, 1, 65556, 393216, 0, 65557, 393216, 0, 65558, 393216, 0, 65559, 393216, 0, 131092, 393216, 1, 131093, 393216, 1, 131094, 393216, 1, 131095, 393216, 1, 65561, 393216, 0, 65560, 393216, 0, 131096, 393216, 1, 131097, 393216, 1, -589805, 393216, 0, -589806, 393216, 0, -655342, 393216, 0, -655343, 393216, 0, -720880, 393216, 0, -327646, 393216, 0, -65502, 393216, 0, -327645, 393216, 0, -65501, 393216, 0, -327644, 393216, 0, -65500, 393216, 0, -327643, 393216, 0, -65499, 393216, 0, -327642, 393216, 0, -65498, 393216, 0, -327641, 393216, 0, -262105, 393216, 0, -65497, 393216, 0, 39, 393216, 0, -262104, 393216, 0, 40, 393216, 0, -262103, 393216, 0, -196567, 393216, 0, 41, 393216, 0, -196566, 393216, 0, 42, 393216, 0, 43, 393216, 0, 44, 393216, 0, -65503, 393216, 0, -65504, 393216, 0, -65505, 393216, 0, -65506, 393216, 0, -65507, 393216, 0, -458724, 393216, 0, -458723, 393216, 0, -458722, 393216, 0, -458721, 393216, 0, -393185, 393216, 0, -393184, 393216, 0, 131121, 0, 1, 196657, 0, 1, 262194, 0, 1, 262195, 0, 1, 262196, 0, 1, 262197, 0, 1, 262198, 0, 1, 262199, 0, 1, 262200, 0, 1, 327736, 0, 1, 327737, 0, 1, 393274, 0, 1, 393275, 0, 1, 393276, 0, 1, 393277, 0, 1, 458814, 0, 1, 458815, 0, 1, 393279, 0, 1, 327745, 0, 0, 327746, 0, 0, 393284, 0, 0, 393285, 0, 0, 393286, 0, 0, 327750, 0, 0, 65585, 0, 0, 65586, 0, 0, 131122, 0, 0, 196658, 0, 0, 196659, 0, 0, 196660, 0, 0, 196661, 0, 0, 131127, 524288, 5, 196664, 0, 0, 196665, 0, 0, 262201, 0, 0, 262202, 0, 0, 327738, 0, 0, 327739, 0, 0, 327740, 0, 0, 327741, 0, 0, 393278, 0, 1, 327743, 0, 0, 393283, 0, 0, 327744, 0, 0, 196662, 0, 0, 196663, 0, 0, 458813, 0, 1, 262214, 524288, 3, 262210, 524288, 5)
 
 [node name="Player" parent="." instance=ExtResource("2_dgq3b")]
 position = Vector2(7, -29)
 collision_layer = 2
 SPRINT_VELOCITY = 400.0
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
-
-[node name="TeleportLast" parent="." instance=ExtResource("3_bcgyv")]
-position = Vector2(-24, -16)
-next_Scene = "res://map/test_map/level_1.tscn"
+limit_left = -100
+limit_top = -434
+limit_right = 1255
+limit_bottom = 200
 
 [node name="TeleportNext" parent="." instance=ExtResource("3_bcgyv")]
-position = Vector2(200, -64)
+position = Vector2(154, -189)
 next_Scene = "res://map/test_map/level_1.tscn"
+
+[node name="KillZone" parent="." instance=ExtResource("4_ulbl2")]
+position = Vector2(305, 299)
+
+[node name="BigEye" parent="." instance=ExtResource("2_0p8oe")]
+position = Vector2(494, -25)
+
+[node name="Wall1" type="Node" parent="BigEye"]
+
+[node name="StaticBody2Dleft" type="StaticBody2D" parent="BigEye/Wall1"]
+visible = false
+position = Vector2(465, -47)
+rotation = 1.5707964
+collision_layer = 16
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigEye/Wall1/StaticBody2Dleft"]
+shape = SubResource("WorldBoundaryShape2D_0p8oe")
+
+[node name="StaticBody2Dright" type="StaticBody2D" parent="BigEye/Wall1"]
+visible = false
+position = Vector2(613, -26)
+rotation = -1.5707964
+collision_layer = 16
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigEye/Wall1/StaticBody2Dright"]
+shape = SubResource("WorldBoundaryShape2D_beoi3")
+
+[node name="BigEye2" parent="." instance=ExtResource("2_0p8oe")]
+position = Vector2(250, -39)
+
+[node name="Wall" type="Node" parent="BigEye2"]
+
+[node name="StaticBody2Dleft" type="StaticBody2D" parent="BigEye2/Wall"]
+position = Vector2(166, -70)
+rotation = 1.5707964
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigEye2/Wall/StaticBody2Dleft"]
+visible = false
+shape = SubResource("WorldBoundaryShape2D_0p8oe")
+
+[node name="StaticBody2Dright" type="StaticBody2D" parent="BigEye2/Wall"]
+position = Vector2(280, -81)
+rotation = -1.5707964
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigEye2/Wall/StaticBody2Dright"]
+visible = false
+shape = SubResource("WorldBoundaryShape2D_beoi3")
+
+[node name="TeleportNext2" parent="." instance=ExtResource("3_bcgyv")]
+position = Vector2(1129, 70)
+next_Scene = "res://map/test_map/level_1.tscn"
+
+[node name="BigEye3" parent="." instance=ExtResource("2_0p8oe")]
+position = Vector2(830, 34)
+
+[node name="Wall" type="Node" parent="BigEye3"]
+
+[node name="StaticBody2Dleft" type="StaticBody2D" parent="BigEye3/Wall"]
+position = Vector2(166, -70)
+rotation = 1.5707964
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigEye3/Wall/StaticBody2Dleft"]
+position = Vector2(81.99997, -653)
+shape = SubResource("WorldBoundaryShape2D_0p8oe")
+
+[node name="StaticBody2Dright" type="StaticBody2D" parent="BigEye3/Wall"]
+position = Vector2(280, -81)
+rotation = -1.5707964
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigEye3/Wall/StaticBody2Dright"]
+position = Vector2(-91.00003, 645)
+shape = SubResource("WorldBoundaryShape2D_beoi3")
+
+[connection signal="hitted" from="KillZone" to="Player" method="_on_hit"]
+[connection signal="monster_hit" from="BigEye" to="Player" method="_on_hit"]
+[connection signal="monster_hit" from="BigEye2" to="Player" method="_on_hit"]
+[connection signal="monster_hit" from="BigEye3" to="Player" method="_on_hit"]

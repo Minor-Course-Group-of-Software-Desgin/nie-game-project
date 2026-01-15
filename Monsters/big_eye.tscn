@@ -1,0 +1,118 @@
+[gd_scene load_steps=14 format=3 uid="uid://8h1o68ow21sj"]
+
+[ext_resource type="Script" uid="uid://0oo01gduawoi" path="res://Monsters/big_eye.gd" id="1_b6mpn"]
+[ext_resource type="Texture2D" uid="uid://c3fq4v2qvuyqj" path="res://asserts/monsters/Cyclopes.png" id="1_wvsb0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6mpn"]
+atlas = ExtResource("1_wvsb0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2ss3"]
+atlas = ExtResource("1_wvsb0")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2fd4"]
+atlas = ExtResource("1_wvsb0")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk7wv"]
+atlas = ExtResource("1_wvsb0")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g1v5"]
+atlas = ExtResource("1_wvsb0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1rs8"]
+atlas = ExtResource("1_wvsb0")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htndi"]
+atlas = ExtResource("1_wvsb0")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v17yn"]
+atlas = ExtResource("1_wvsb0")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbxqi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6mpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2ss3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2fd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk7wv")
+}],
+"loop": true,
+"name": &"work_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g1v5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1rs8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htndi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v17yn")
+}],
+"loop": true,
+"name": &"work_right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6mpn"]
+size = Vector2(87, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2ss3"]
+size = Vector2(24, 26)
+
+[node name="BigEye" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_b6mpn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sbxqi")
+animation = &"work_right"
+autoplay = "work_right"
+frame_progress = 0.13709861
+
+[node name="VisionArea2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea2D"]
+position = Vector2(43, 0)
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_b6mpn")
+
+[node name="HitArea2D2" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D2"]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_u2ss3")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -1.5707964
+target_position = Vector2(-6.556708e-07, 15)
+collision_mask = 16
+
+[connection signal="body_entered" from="VisionArea2D" to="." method="_on_vision_area_2d_body_entered"]
+[connection signal="body_exited" from="VisionArea2D" to="." method="_on_vision_area_2d_body_exited"]
+[connection signal="body_entered" from="HitArea2D2" to="." method="_on_hit_area_2d_2_body_entered"]

@@ -69,7 +69,11 @@ func get_menu_from_menu_id(menu_id: String) -> Control:
 			return menu_1
 
 func _on_button_pressed() -> void:
-	move_to_next_menu("menu_2")
+	get_tree().change_scene_to_file("res://map/test_map/level_1.tscn")
 
 func _on_button_4_pressed() -> void:
 	move_to_previous_menu()
+
+
+func _on_button_3_pressed() -> void:
+	get_tree().quit()
